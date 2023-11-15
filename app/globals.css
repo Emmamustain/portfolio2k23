@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@font-face {
+  font-family: Ivar;
+  src: url("/fonts/Ivar/Ivar.woff");
+  font-weight: 300;
+}
+
+.font-ivar {
+  font-family: Ivar;
+}
+
+@font-face {
+  font-family: maisonneue;
+  src: url("/fonts/maisonneue/MaisonNeue-Medium.otf");
+  font-weight: 300;
+}
+
+.font-maisonneue {
+  font-family: maisonneue;
+}
+
+@font-face {
+  font-family: gallient;
+  src: url("/fonts/Gallient/Gallient.ttf");
+  font-weight: 300;
+}
+
+.font-gallient {
+  font-family: gallient;
+}
+
+@font-face {
+  font-family: maisonneueLight;
+  src: url("/fonts/maisonneue/maisonneue-light.otf");
+  font-weight: 300;
+}
+
+.font-maisonneueLight {
+  font-family: maisonneueLight;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(25);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
