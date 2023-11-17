@@ -1,11 +1,99 @@
+"use client";
 import AnimButton from "./component/AnimButton";
 import Header from "./component/Header";
 import { Mail, Linkedin, Github, ArrowUp } from "lucide-react";
 import Loading from "./component/Loading";
 import Footer from "./component/Footer";
 import ContactSection from "./sections/Contact";
+import { useEffect, useRef, useState } from "react";
+
+type mouse = { x: number; y: number };
 
 export default function Home() {
+  const [mousePos, _setMousePos] = useState<mouse>({ x: 0, y: 0 });
+  const [imageCount, _setImageCount] = useState(1);
+
+  const mousePosRef = useRef(mousePos);
+  const setMousePos = (data: mouse) => {
+    mousePosRef.current = data;
+    _setMousePos(data);
+  };
+
+  const imageCountRef = useRef(imageCount);
+  const setImageCount = (data: number) => {
+    imageCountRef.current = data;
+    _setImageCount(data);
+  };
+  //Cursor images
+  useEffect(() => {
+    function spawnImageOnMouseMove(event: MouseEvent) {
+      let posX = event.clientX;
+      let posY = event.clientY;
+
+      console.log(posX, posY);
+
+      let maxThreshold = 60;
+
+      if (
+        Math.abs(posX - mousePosRef.current.x) >= maxThreshold ||
+        Math.abs(posY - mousePosRef.current.y) >= maxThreshold
+      ) {
+        let directionX = posX - mousePosRef.current.x > 0;
+        let directionY = posY - mousePosRef.current.y > 0;
+
+        setMousePos({ x: posX, y: posY });
+
+        let image = new Image();
+        image.src = `icons/${imageCountRef.current}.png`;
+        setImageCount(((imageCountRef.current + 1) % 10) + 1);
+
+        image.className = "absolute h-[60px] w-[60px] duration-300 z-10";
+        image.style.top = posY + "px";
+        image.style.left = posX + "px";
+
+        let main = document.body.getElementsByTagName("main")[0];
+        main.appendChild(image);
+
+        setTimeout(() => {
+          image.style.opacity = "O";
+
+          if (directionX && !directionY) {
+            image.style.transform = "translate(-100%, -100%)";
+          } else if (!directionX && !directionY) {
+            image.style.transform = "translate(100%, 100%)";
+          } else if (directionX && !directionY) {
+            image.style.transform = "translate(-100%, 100%)";
+          } else if (!directionX && directionY) {
+            image.style.transform = "translate(100%, -100%)";
+          }
+
+          if (!directionX && posY - mousePosRef.current.y == 0) {
+            image.style.transform = "translate(-100%)";
+          }
+          if (directionX && posY - mousePosRef.current.y == 0) {
+            image.style.transform = "translate(-100%)";
+          }
+
+          if (!directionY && posX - mousePosRef.current.x == 0) {
+            image.style.transform = "translate(0,100%)";
+          }
+          if (directionY && posX - mousePosRef.current.x == 0) {
+            image.style.transform = "translate(0,-100%)";
+          }
+
+          image.style.scale = "0.75";
+        }, 50);
+
+        setTimeout(() => {
+          main.removeChild(image);
+        }, 400);
+      }
+    }
+
+    window.addEventListener("mousemove", (event) =>
+      spawnImageOnMouseMove(event)
+    );
+  }, []);
   return (
     <main className="flex overflow-hidden bg-primary relative flex-col text-black">
       <Loading />
