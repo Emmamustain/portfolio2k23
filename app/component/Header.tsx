@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex gap-4 hover:text-gray-400 ">
           <HeaderButton text="WORK" targetId="section1" />
           <HeaderButton text="ABOUT ME" targetId="section2" />
-          <HeaderButton text="ARCHIEVE" targetId="section3" />
+          <HeaderButton text="CONTACT" targetId="section3" />
         </div>
         <div>
           <div className="w-[30px] h-[30px] bg-white duration-300 relative group overflow-hidden flex items-center rounded-full hover:w-[250px]">
