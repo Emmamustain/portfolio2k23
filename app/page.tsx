@@ -6,6 +6,7 @@ import Loading from "./component/Loading";
 import Footer from "./component/Footer";
 import ContactSection from "./sections/Contact";
 import { useEffect, useRef, useState } from "react";
+import IMG from "next/image";
 
 type mouse = { x: number; y: number };
 
@@ -28,7 +29,7 @@ export default function Home() {
   useEffect(() => {
     function spawnImageOnMouseMove(event: MouseEvent) {
       let posX = event.clientX;
-      let posY = event.clientY;
+      let posY = event.pageY;
 
       console.log(posX, posY);
 
@@ -47,7 +48,7 @@ export default function Home() {
         image.src = `icons/${imageCountRef.current}.png`;
         setImageCount(((imageCountRef.current + 1) % 10) + 1);
 
-        image.className = "absolute h-[60px] w-[60px] duration-300 z-10";
+        image.className = "absolute h-[50px] w-[50px] duration-300 z-10";
         image.style.top = posY + "px";
         image.style.left = posX + "px";
 
@@ -94,6 +95,7 @@ export default function Home() {
       spawnImageOnMouseMove(event)
     );
   }, []);
+
   return (
     <main className="flex overflow-hidden bg-primary relative flex-col text-black">
       <Loading />
@@ -122,21 +124,27 @@ export default function Home() {
             </p>
 
             <div className="flex gap-2 mt-5">
-              <AnimButton
-                text="benelhadjsaidamina@gmail.com"
-                icon={<Mail size={10} />}
-                className="hover:w-[220px] "
-              />
-              <AnimButton
-                text="Amina Benelhadjsaid"
-                icon={<Linkedin size={10} />}
-                className="hover:w-[160px] "
-              />
-              <AnimButton
-                text="Emmamustain"
-                icon={<Github size={10} />}
-                className="hover:w-[120px] "
-              />
+              <a href="mailto:benelhadjsaidamina@gmail.com">
+                <AnimButton
+                  text="benelhadjsaidamina@gmail.com"
+                  icon={<Mail size={10} />}
+                  className="hover:w-[220px] "
+                />
+              </a>
+              <a href="https://www.linkedin.com/in/amina-benelhadjsaid-258162285">
+                <AnimButton
+                  text="Amina Benelhadjsaid"
+                  icon={<Linkedin size={10} />}
+                  className="hover:w-[160px] "
+                />
+              </a>
+              <a href="https://github.com/Emmamustain">
+                <AnimButton
+                  text="Emmamustain"
+                  icon={<Github size={10} />}
+                  className="hover:w-[120px] "
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -149,8 +157,26 @@ export default function Home() {
             <p className="font-ivar mb-12 text-[60px]">Selected Works</p>
             {/* Actual Work */}
             <div className=" h-fit w-full flex justify-around ">
-              <div className="w-[48%] h-[80vh] bg-purple-200">01</div>
-              <div className="w-[48%] h-[80vh] bg-pink-200">02</div>
+              <div className="w-[48%] h-[70vh] bg-purple-200 relative overflow-hidden">
+                {/* <div className="absolute top-2 left-2">01</div> */}
+                <IMG
+                  src="/images/market.png"
+                  height={1000}
+                  width={1000}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="w-[48%] h-[70vh] bg-purple-200 relative overflow-hidden">
+                {/* <div className="absolute top-2 left-2">02</div> */}
+                <IMG
+                  src="/images/cw.png"
+                  height={1000}
+                  width={1000}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -159,8 +185,26 @@ export default function Home() {
       <section className="h-screen relative bg-eggshell w-full pt-16">
         <div className="absolute bottom-0 w-full left-0 h-[200px] bg-gradient-to-b from-eggshell to-diamond"></div>
         <div className=" h-fit w-full flex justify-around">
-          <div className="w-[48%] h-[80vh] bg-red-200">03</div>
-          <div className="w-[48%] h-[80vh] bg-yellow-200">04</div>
+          <div className="w-[48%] h-[50vh] bg-purple-200 relative overflow-hidden">
+            {/* <div className="absolute top-2 left-2 text-white">03</div> */}
+            <IMG
+              src="/images/wp.png"
+              height={1000}
+              width={1000}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-[48%] h-[50vh] bg-purple-200 relative overflow-hidden">
+            {/* <div className="absolute top-2 left-2">04</div> */}
+            <IMG
+              src="/images/thd.png"
+              height={1000}
+              width={1000}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
       {/* forth section */}
