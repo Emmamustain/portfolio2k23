@@ -20,14 +20,16 @@ export default function Header() {
           <HeaderButton text="CONTACT" targetId="section3" />
         </div>
         <div>
-          <div className="w-[30px] h-[30px] bg-white duration-300 relative group overflow-hidden flex items-center rounded-full hover:w-[250px]">
-            <div className="h-[30px] w-[30px] rounded-full duration-300 group-hover:scale-75 text-center bg-black text-white flex justify-center items-center">
-              <Mail size={10} />
+          <a href="mailto: BENELHADJSAIDAMINA@GMAIL.COM">
+            <div className="w-[30px] h-[30px] bg-white duration-300 relative group overflow-hidden flex items-center rounded-full hover:w-[250px]">
+              <div className="h-[30px] w-[30px] rounded-full duration-300 group-hover:scale-75 text-center bg-black text-white flex justify-center items-center">
+                <Mail size={10} />
+              </div>
+              <div className="opacity-0 group-hover:opacity-100 duration-500 absolute left-[40px] hover:text-black text-[11px]">
+                BENELHADJSAIDAMINA@GMAIL.COM
+              </div>
             </div>
-            <div className="opacity-0 group-hover:opacity-100 duration-500 absolute left-[40px] hover:text-black text-[11px]">
-              BENELHADJSAIDAMINA@GMAIL.COM
-            </div>
-          </div>
+          </a>
         </div>
       </div>
     </header>
