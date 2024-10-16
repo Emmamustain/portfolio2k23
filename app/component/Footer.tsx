@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="flex justify-between items-center px-6">
       <div className="font-maisonneueLight text-[12px]">
-        <p>2023©</p>
+        <p>2024©</p>
         <p>DEV BY AMINA BENELHADJSAID</p>
       </div>
       <div className="flex gap-2 ">
