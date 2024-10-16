@@ -106,7 +106,7 @@ export default function Home() {
       <section className="h-[calc(100vh-100px)] relative">
         <div className="w-full h-[calc(100vh-200px)] relative flex justify-center items-center ">
           <div className="flex flex-col h-full -mt-8 justify-center items-center ">
-            <p className="text-sm text-gray-500 font-ivar">( 2023© )</p>
+            <p className="text-sm text-gray-500 font-ivar">( 2024© )</p>
             <p className="text-[250px] font-ivar text-black leading-[220px] ">
               Amina
             </p>
