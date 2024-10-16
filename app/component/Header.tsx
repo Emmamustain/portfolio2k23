@@ -9,7 +9,7 @@ export default function Header() {
           AMINA BENELHADJ-SAID
         </h1>
         <p className="text-[13px] text-gray-500 font-maisonneueLight">
-          Algeria
+          Montpellier, France
         </p>
       </div>
       {/* right part of header */}
