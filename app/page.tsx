@@ -131,7 +131,7 @@ export default function Home() {
                   className="hover:w-[220px] "
                 />
               </a>
-              <a href="https://www.linkedin.com/in/amina-benelhadjsaid-258162285">
+              <a href="https://www.linkedin.com/in/amina-benelhadjsaid/">
                 <AnimButton
                   text="Amina Benelhadjsaid"
                   icon={<Linkedin size={10} />}
